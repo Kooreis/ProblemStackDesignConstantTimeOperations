@@ -1,9 +1,14 @@
-using System;
-using System.Collections.Generic;
-
-public class StackWithMinMax
+public void Push(int value)
 {
-    private Stack<int> mainStack = new Stack<int>();
-    private Stack<int> minStack = new Stack<int>();
-    private Stack<int> maxStack = new Stack<int>();
+    mainStack.Push(value);
+
+    if (minStack.Count == 0 || value <= minStack.Peek())
+    {
+        minStack.Push(value);
+    }
+
+    if (maxStack.Count == 0 || value >= maxStack.Peek())
+    {
+        maxStack.Push(value);
+    }
 }
