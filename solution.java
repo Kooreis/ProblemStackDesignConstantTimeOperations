@@ -1,7 +1,9 @@
-import java.util.Stack;
-
-public class MinMaxStack {
-    private Stack<Integer> stack = new Stack<>();
-    private Stack<Integer> minStack = new Stack<>();
-    private Stack<Integer> maxStack = new Stack<>();
-}
+public void push(int x) {
+        stack.push(x);
+        if (minStack.isEmpty() || x <= minStack.peek()) {
+            minStack.push(x);
+        }
+        if (maxStack.isEmpty() || x >= maxStack.peek()) {
+            maxStack.push(x);
+        }
+    }
